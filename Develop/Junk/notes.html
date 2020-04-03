@@ -55,8 +55,10 @@
           title: $(".note-title").val().trim(),
           text: $(".note-textarea").val().trim()
         };
+         
         // Question: What does this code do??
-        $.post("/api/notes", newNote).then(function(data) {
+        $.post("/api/notes", newNote)
+         .then(function(data) {
           console.log("notes.html", data);
           alert("Adding note...");
         });

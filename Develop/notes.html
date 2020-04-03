@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -17,8 +18,8 @@
     <a class="navbar-brand" href="/">Note Taker
     </a>
     <div class="icons">
-      <i class="fas fa-save text-light save-note"></i>
-      <i class="fas fa-pen text-light new-note"></i>
+      <i class="fas fa-save text-light save-note" id="save-btn"></i>
+      <i class="fas fa-pen text-light new-note" id="new-btn"></i>
     </div>
   </nav>
   <div class="container-fluid">
@@ -36,7 +37,24 @@
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/assets/js/index.js"></script>
+  <script src="Develop/index.js"></script>
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#save-btn").on("click", function(event) {
+      event.preventDefault();
+      var newNote = {
+        title: $(".note-title").val().trim(),
+        text: $(".note-textarea").val().trim()
+      };
+      // Question: What does this code do??
+      $.post("/api/notes", newNote)
+        .then(function(data) {
+          console.log("notes.html", data);
+          alert("Adding note...");
+        });
+    });
+  </script>
+
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid'); // installs a unique id for each new note - used for delete route
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -40,12 +40,10 @@ app.post("/api/notes", function(req, res) {
       });
         res.send("Note created!");
   })
-//   fs.appendFile("db.json", newNote, function(err) {
-//     if (err) throw err;
-//   });
-//     res.send("Note created!");
 });
 
+// Route to delete specific notes - uses the filter function on the entire db.json file and then reprints it
+// with the note deleted
 app.delete("/api/notes/:id", function(req, res) {
     console.log(req.params.id);
     fs.readFile("db.json", "utf8", function(err, data){

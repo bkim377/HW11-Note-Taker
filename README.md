@@ -5,4 +5,4 @@ My submission for the HW11-Note-Taker application.
 
 2) Link to deployed application: https://bkim377.github.io/HW11-Note-Taker
 
-3) Screenshot: ![NoteTaker Screenshot](Note Taker)
+3) Screenshot: ![NoteTakerScreenshot](NoteTaker.png)

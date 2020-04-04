@@ -43,7 +43,7 @@ app.post("/api/notes", function(req, res) {
 });
 
 // Route to delete specific notes - uses the filter function on the entire db.json file and then reprints it
-// with the note deleted
+// with the selected note deleted
 app.delete("/api/notes/:id", function(req, res) {
     console.log(req.params.id);
     fs.readFile("db.json", "utf8", function(err, data){
